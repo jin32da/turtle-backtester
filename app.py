@@ -7,8 +7,14 @@ from data_fetcher import fetch_ohlcv
 from turtle_engine import run_backtest
 
 # 한글 폰트 설정
-plt.rcParams["font.family"] = "sans-serif"
-plt.rcParams["font.sans-serif"] = ["Noto Sans CJK KR", "NanumGothic", "Malgun Gothic", "DejaVu Sans"]
+import matplotlib.font_manager as fm
+font_path = "/usr/share/fonts/truetype/nanum/NanumGothic.ttf"
+if os.path.exists(font_path):
+    fm.fontManager.addfont(font_path)
+    plt.rcParams["font.family"] = "NanumGothic"
+else:
+    plt.rcParams["font.family"] = "sans-serif"
+    plt.rcParams["font.sans-serif"] = ["NanumGothic", "Noto Sans CJK KR", "Malgun Gothic", "DejaVu Sans"]
 plt.rcParams["axes.unicode_minus"] = False
 
 st.set_page_config(
