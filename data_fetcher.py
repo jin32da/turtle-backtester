@@ -21,7 +21,11 @@ def fetch_ohlcv(ticker: str, start_date: str = "20100101", end_date: str = "2026
     with urllib.request.urlopen(req, timeout=10) as resp:
         xml_data = resp.read()
 
-    root = ElementTree.fromstring(xml_data)
+    xml_str = xml_data.decode("euc-kr", errors="ignore")
+    if xml_str.startswith("<?xml"):
+        xml_str = xml_str.split("?>", 1)[-1].strip()
+
+    root = ElementTree.fromstring(xml_str)
     rows = []
     for item in root.findall(".//item"):
         d = item.attrib["data"].split("|")
