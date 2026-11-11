@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+build/
+dist/
+
+# 가상환경
+.venv/
+venv/
+env/
+
+# 일봉 데이터 캐시 (실행 시 자동 생성)
+data/
+
+# 로컬 설정/비밀값
+.env
+.streamlit/secrets.toml
+
+# macOS
+.DS_Store

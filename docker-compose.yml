@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  turtle-backtester:
+    build: .
+    container_name: turtle-backtester-app
+    restart: unless-stopped
+    ports:
+      - "8501:8501"
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./data:/app/data
