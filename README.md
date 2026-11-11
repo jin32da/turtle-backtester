@@ -6,17 +6,19 @@
 
 ## 📂 디렉토리 구조
 ```text
-turtle_backtest_webapp/
+turtle-backtester/
 ├── app.py                      # Streamlit 웹 대시보드 메인
 ├── turtle_engine.py            # 터틀 전략 및 지표 시뮬레이션 엔진
-├── data_fetcher.py             # 네이버 금융 실시간 일봉 수집 및 캐싱
+├── data_fetcher.py             # 네이버 금융 일봉 수집 및 캐싱 (종료일은 실행 당일)
 ├── requirements.txt            # 파이썬 의존성 목록
+├── packages.txt                # Streamlit Cloud용 apt 패키지 (한글 폰트)
 ├── Dockerfile                  # 도커 이미지 빌드 파일
 ├── docker-compose.yml          # 원클릭 도커 실행 파일
 ├── turtle-backtester.service   # Vultr Linux용 systemd 서비스
 ├── run.sh                      # Linux / macOS 원클릭 실행 스크립트
 ├── run.bat                     # Windows 원클릭 실행 배치 파일
-└── data/                       # 주요 8대 종목 사전 수집 캐시
+├── .gitignore                  # 캐시·가상환경 등 제외 규칙
+└── data/                       # 일봉 캐시 (실행 시 자동 생성, .gitignore로 제외)
 ```
 
 ---
